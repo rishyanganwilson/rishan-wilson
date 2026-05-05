@@ -1,0 +1,7 @@
+.git
+.github
+.vercel-cli
+.vercel
+node_modules
+*.zip
+MEMORY.md

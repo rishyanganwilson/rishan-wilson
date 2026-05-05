@@ -102,3 +102,31 @@ Next manual checks:
 2. Open `https://github.com/rishyanganwilson/rishyanganwilson.github.io/actions` and check whether GitHub asks to enable or approve workflows.
 3. Open `https://github.com/rishyanganwilson/rishyanganwilson.github.io/settings/pages` and check for a visible Pages build error or setup banner.
 4. After any manual GitHub prompt is resolved, rerun Pages by pushing an empty commit or using the workflow dispatch.
+
+## Vercel Deployment
+
+Vercel CLI was installed locally inside `.vercel-cli/` and ignored by Git.
+
+Production deployment succeeded:
+
+- Live URL: `https://rishan-wilson.vercel.app/`
+- Deployment URL: `https://rishan-wilson-bf668efgk-rishyanganwilson-4898s-projects.vercel.app`
+- Vercel project: `rishan-wilson`
+- Vercel project ID: `prj_ah2rsfpD17nMlaPC5c4DXzfU62uJ`
+- Vercel owner/team ID used by CLI: `team_tgMSrlU5A5me7AgoTIWRVLo3`
+
+Verification:
+
+- `https://rishan-wilson.vercel.app/` returned HTTP 200.
+- Response content contained `Rishan Wilson`.
+- Response title matched `Rishan Wilson`.
+
+GitHub-to-Vercel connection state:
+
+- Attempted to connect Vercel project to GitHub repo `https://github.com/rishyanganwilson/rishan-wilson.git`.
+- Vercel returned: `Failed to link rishyanganwilson/rishan-wilson. You need to add a Login Connection to your GitHub account first.`
+- Next manual step: in Vercel, add GitHub as a login connection / account connection, then rerun:
+
+```powershell
+& 'C:\Program Files\nodejs\node.exe' '.\.vercel-cli\node_modules\vercel\dist\index.js' git connect 'https://github.com/rishyanganwilson/rishan-wilson.git'
+```

@@ -1,1 +1,6 @@
 *.zip
+node_modules/
+.vercel/
+.vercel-cli/
+
+.vercel

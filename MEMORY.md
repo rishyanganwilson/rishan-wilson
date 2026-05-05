@@ -65,16 +65,40 @@ Headless Edge render check passed on desktop and mobile:
 
 ## Deployment State
 
-The project is GitHub Pages-ready but not yet deployed from Codex.
+Git and GitHub CLI were installed through `winget`.
 
-Current blocker:
+GitHub CLI is authenticated as:
 
-- No `git` or `gh` command is available on PATH in this session.
-- GitHub plugin install was confirmed, but no callable GitHub tools appeared in the active tool list.
-- Deployment still needs authenticated GitHub access.
+- `rishyanganwilson`
 
-Preferred deployment:
+Primary user-site repository:
 
-1. Create GitHub repository.
-2. Push this project root to `main`.
-3. Enable GitHub Pages from `main` branch `/root`.
+- Repo: `https://github.com/rishyanganwilson/rishyanganwilson.github.io`
+- Intended URL: `https://rishyanganwilson.github.io/`
+- Remote name: `origin`
+
+Fallback project-site repository:
+
+- Repo: `https://github.com/rishyanganwilson/rishan-wilson`
+- Intended URL: `https://rishyanganwilson.github.io/rishan-wilson/`
+- Remote name: `project`
+
+Current deployment blocker:
+
+- Both GitHub Pages builds are stuck in `building` / workflow `pending`.
+- The public URLs currently return GitHub Pages `404`.
+- The repository content is pushed correctly and Pages is configured from `main` `/`.
+- GitHub Actions and Pages appear enabled by API, but jobs do not start normally.
+- Likely account-level/manual GitHub blocker for the new account, such as email verification, first-run Actions approval, or a Pages settings banner in the GitHub UI.
+
+Important GitHub docs note:
+
+- GitHub says that if publishing from a branch does not happen automatically, someone with admin permissions and a verified email address must push to the publishing source.
+- Commits were switched to the GitHub account-linked noreply address: `281940770+rishyanganwilson@users.noreply.github.com`.
+
+Next manual checks:
+
+1. Open GitHub account `Settings > Emails` and confirm the primary email is verified.
+2. Open `https://github.com/rishyanganwilson/rishyanganwilson.github.io/actions` and check whether GitHub asks to enable or approve workflows.
+3. Open `https://github.com/rishyanganwilson/rishyanganwilson.github.io/settings/pages` and check for a visible Pages build error or setup banner.
+4. After any manual GitHub prompt is resolved, rerun Pages by pushing an empty commit or using the workflow dispatch.
